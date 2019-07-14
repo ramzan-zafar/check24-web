@@ -8,16 +8,16 @@ Run `ng serve --proxy-config proxy.config.json` for a dev server. Navigate to `h
 
 
 ## Application URLS
-
+```
 http://localhost:4200/films
 http://localhost:4200/login
 http://localhost:4200/register
-
+```
 ## Default User
-
-username: check23
+```
+username: check24
 password: temp/123
-
+```
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
