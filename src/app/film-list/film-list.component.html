@@ -1,0 +1,42 @@
+<h1 *ngIf="currentUser">Hi {{currentUser.name}}!</h1>
+
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Seach</button>
+    </div>
+</form>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Films</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Year of Relase</th>
+                    <th>Duration in Mins</th>
+                    <th>Average Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let film of films | async">
+                    <td>{{film.name}}</td>
+                    <td>{{film.yearOfRelease}}</td>
+                    <td>{{film.durationInMins}}</td>
+                    <td>{{film.averageRating}}</td>
+                    <td> <app-rating [rating]='film.averageRating' [itemId]='film.filmId' (ratingClick)='rateFilm($event)'></app-rating></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
