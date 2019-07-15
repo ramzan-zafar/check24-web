@@ -24,6 +24,9 @@
                     <th>Name</th>
                     <th>Year of Relase</th>
                     <th>Duration in Mins</th>
+                    <th>Directors</th>
+                    <th>Cast</th>
+                    <th>Genre</th>
                     <th>Average Rating</th>
                     <th>Action</th>
                 </tr>
@@ -33,6 +36,9 @@
                     <td>{{film.name}}</td>
                     <td>{{film.yearOfRelease}}</td>
                     <td>{{film.durationInMins}}</td>
+                    <td>{{film.directors.join(', ')}}</td>
+                    <td>{{film.cast.join(', ')}}</td>
+                    <td>{{film.genres.join(', ')}}</td>
                     <td>{{film.averageRating}}</td>
                     <td> <app-rating [rating]='film.averageRating' [itemId]='film.filmId' (ratingClick)='rateFilm($event)'></app-rating></td>
                 </tr>
